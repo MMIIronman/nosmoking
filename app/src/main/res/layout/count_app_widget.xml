@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#09C"
+    android:background="@color/colorWidget"
     android:padding="@dimen/widget_margin">
 
     <TextView
@@ -19,16 +19,35 @@
         android:layout_marginRight="8dp"
         android:layout_alignParentTop="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/appwidget_button"
-        android:id="@+id/button"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/appwidget_text" />
+        android:weightSum="1"
+        android:layout_below="@+id/appwidget_text">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/appwidget_button_status"
+            android:id="@+id/button_status"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/appwidget_button"
+            android:id="@+id/button_count"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/appwidget_text" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>

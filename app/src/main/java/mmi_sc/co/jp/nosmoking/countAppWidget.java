@@ -19,7 +19,14 @@ public class countAppWidget extends AppWidgetProvider {
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.count_app_widget);
         views.setTextViewText(R.id.appwidget_text, widgetText);
-        views.setOnClickPendingIntent(R.id.button, clickButton(context));
+        views.setOnClickPendingIntent(R.id.button_count, clickButton(context));
+
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        intent.setAction(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        views.setOnClickPendingIntent(R.id.button_status, pendingIntent);
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -52,5 +59,6 @@ public class countAppWidget extends AppWidgetProvider {
         intent.setAction("UPDATE_WIDGET");
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
+
 }
 
