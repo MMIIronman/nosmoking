@@ -1,4 +1,4 @@
-package mmi_sc.co.jp.nosmoking;
+package jp.co.mmi_sc.nosmoking;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

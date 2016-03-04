@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "mmi_sc.co.jp.nosmoking"
+        applicationId "jp.co.mmi_sc.nosmoking"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1

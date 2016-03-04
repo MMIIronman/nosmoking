@@ -1,4 +1,4 @@
-package mmi_sc.co.jp.nosmoking;
+package jp.co.mmi_sc.nosmoking;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
