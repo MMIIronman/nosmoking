@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 public class MyConfig {
     private static final String MYCONFIG = "KEY_MYCONFIG";
     private static final String SMOKINGCOUNT = "KEY_SMOKING_COUNT";
+    private static final String DEBUGMODE = "KEY_DEBUGMODE";
 
     SharedPreferences mPref = null;
 
@@ -30,6 +31,29 @@ public class MyConfig {
         SharedPreferences.Editor editor = mPref.edit();
 
         editor.putLong(SMOKINGCOUNT, count);
+        editor.commit();
+    }
+
+    boolean getDebugMode() {
+        boolean ret = false;
+
+        if (mPref != null) {
+            ret = mPref.getBoolean(DEBUGMODE, false);
+        }
+
+        return ret;
+    }
+
+    void changeDebugMode() {
+        boolean setFlag = getDebugMode();
+        SharedPreferences.Editor editor = mPref.edit();
+
+        if (setFlag == true) {
+            setFlag = false;
+        } else {
+            setFlag = true;
+        }
+        editor.putBoolean(DEBUGMODE, setFlag);
         editor.commit();
     }
 }
