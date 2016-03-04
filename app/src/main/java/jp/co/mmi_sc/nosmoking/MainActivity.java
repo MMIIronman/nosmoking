@@ -10,12 +10,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
     MyConfig mConfig;
+
+    public static final int MENU_SELECT_DEBUG = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        if (mConfig.getDebugMode() == true) {
+            menu.add(Menu.NONE, MENU_SELECT_DEBUG, Menu.NONE, "Debug Menu");
+        }
         return true;
     }
 
@@ -60,10 +67,14 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(this, "Select menu is Setting", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
+            return true;
+        } else if (id == MENU_SELECT_DEBUG) {
+            Toast.makeText(this, "Select menu is Debug Menu", Toast.LENGTH_SHORT).show();
             return true;
         }
 
