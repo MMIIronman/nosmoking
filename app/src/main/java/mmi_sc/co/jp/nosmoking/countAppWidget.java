@@ -51,12 +51,9 @@ public class countAppWidget extends AppWidgetProvider {
     }
 
     public static PendingIntent clickButton(Context context) {
-        // クリック回数を増加
-        MyReceiver.clickCount ++;
-
         // initiate widget update request
         Intent intent = new Intent();
-        intent.setAction("UPDATE_WIDGET");
+        intent.setAction(MyReceiver.ACTION_UPDATE_COUNT);
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 

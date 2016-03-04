@@ -9,11 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
+    MyConfig mConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,21 @@ public class MainActivity extends AppCompatActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        mConfig = new MyConfig(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // test -->
+        Long count = mConfig.getSmokingCount();
+        String strCount = new String("Count = [");
+        strCount += String.valueOf(count);
+        strCount += "].";
+        TextView mText = (TextView) findViewById(R.id.mainTextView);
+        mText.setText(strCount);
+        // test <--
     }
 
     @Override

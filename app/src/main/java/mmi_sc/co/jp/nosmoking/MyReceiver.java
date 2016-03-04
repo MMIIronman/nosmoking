@@ -6,15 +6,19 @@ import android.content.Intent;
 import android.util.Log;
 
 public class MyReceiver extends BroadcastReceiver {
-    public static int clickCount = 0;
+    public static final String ACTION_UPDATE_COUNT = "mmi_sc.co.jp.intent.action.UPDATE_COUNT";
 
     public MyReceiver() {
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals("UPDATE_WIDGET")) {
-           Log.d("Smoking","BroadcastReceiver.onReceive()");
+        if (intent.getAction().equals(ACTION_UPDATE_COUNT)) {
+            Log.d("Smoking","BroadcastReceiver.onReceive()");
+            MyConfig config = new MyConfig(context);
+            Long count = config.getSmokingCount();
+            count++;
+            config.setSmokingCount(count);
         }
     }
 }
