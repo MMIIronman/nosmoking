@@ -13,10 +13,19 @@
     tools:context="jp.co.mmi_sc.nosmoking.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ImageView
+        android:id="@+id/imageMainView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"/>
+
     <TextView
         android:id="@+id/mainTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imageMainView"
+        android:layout_centerInParent="true"
         android:text="No Smoking!" />
 
     <com.google.android.gms.ads.AdView
@@ -28,4 +37,5 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
+
 </RelativeLayout>

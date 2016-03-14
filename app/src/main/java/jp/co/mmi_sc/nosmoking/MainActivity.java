@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +18,15 @@ import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
     MyConfig mConfig;
+    int mAnimeCount = 0;
 
     public static final int MENU_SELECT_DEBUG = 100;
+    private static final int ANIME_COUNT_MAX = 4;
+
+    private static final int anime_level1[] = {R.drawable.anime_level1_001, R.drawable.anime_level1_002, R.drawable.anime_level1_003, R.drawable.anime_level1_004};
+    private static final int anime_level2[] = {R.drawable.anime_level2_001, R.drawable.anime_level2_002, R.drawable.anime_level2_003, R.drawable.anime_level2_004};
+    private static final int anime_level3[] = {R.drawable.anime_level3_001, R.drawable.anime_level3_002, R.drawable.anime_level3_003, R.drawable.anime_level3_004};
+    private static final int anime_level4[] = {R.drawable.anime_level4_001, R.drawable.anime_level4_002, R.drawable.anime_level4_003, R.drawable.anime_level4_004};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
 
         mConfig = new MyConfig(this);
+        mAnimeCount = 0;
     }
 
     @Override
@@ -47,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         strCount += "]";
         TextView mText = (TextView) findViewById(R.id.mainTextView);
         mText.setText(strCount);
+
+        setImageViewAnime();
         // test <--
     }
 
@@ -90,5 +101,40 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    int getAnimeImageId() {
+        int ret = anime_level1[0];
+
+        if (mAnimeCount >= ANIME_COUNT_MAX) {
+            mAnimeCount = 0;
+        }
+
+        Long count = mConfig.getSmokingCount();
+        int level = MySetting.getCountLevel(count);
+        switch (level) {
+            case MySetting.COUNTER_LEVEL1:
+                ret = anime_level1[mAnimeCount];
+                break;
+            case MySetting.COUNTER_LEVEL2:
+                ret = anime_level2[mAnimeCount];
+                break;
+            case MySetting.COUNTER_LEVEL3:
+                ret = anime_level3[mAnimeCount];
+                break;
+            case MySetting.COUNTER_LEVEL4:
+                ret = anime_level4[mAnimeCount];
+                break;
+            default:
+                break;
+        }
+
+        return ret;
+    }
+
+    void setImageViewAnime() {
+        ImageView iv = (ImageView)findViewById(R.id.imageMainView);
+        iv.setImageResource(getAnimeImageId());
+        mAnimeCount++;
     }
 }
