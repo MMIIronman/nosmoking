@@ -15,10 +15,13 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(ACTION_UPDATE_COUNT)) {
             Log.d("Smoking","BroadcastReceiver.onReceive()");
-            MyConfig config = new MyConfig(context);
-            Long count = config.getSmokingCount();
-            count++;
-            config.setSmokingCount(count);
+            if (MySetting.checkCountUp() == true) {
+                MyConfig config = new MyConfig(context);
+                Long count = config.getSmokingCount();
+                count++;
+                config.setSmokingCount(count);
+                MySetting.setCountUpTimer();
+            }
         }
     }
 }

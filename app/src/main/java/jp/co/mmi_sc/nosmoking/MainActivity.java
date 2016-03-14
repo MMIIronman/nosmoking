@@ -41,10 +41,20 @@ public class MainActivity extends AppCompatActivity {
         Long count = mConfig.getSmokingCount();
         String strCount = new String("Count = [");
         strCount += String.valueOf(count);
-        strCount += "].";
+        strCount += "]　";
+        strCount += "Level = [";
+        strCount += String.valueOf(MySetting.getCountLevel(count));
+        strCount += "]";
         TextView mText = (TextView) findViewById(R.id.mainTextView);
         mText.setText(strCount);
         // test <--
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+
     }
 
     @Override
@@ -75,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == MENU_SELECT_DEBUG) {
             Toast.makeText(this, "Select menu is Debug Menu", Toast.LENGTH_SHORT).show();
+            mConfig.initMyConfig(); // test
             return true;
         }
 

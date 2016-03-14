@@ -21,6 +21,7 @@ public class countAppWidget extends AppWidgetProvider {
         views.setTextViewText(R.id.appwidget_text, widgetText);
         views.setOnClickPendingIntent(R.id.button_count, clickButton(context));
 
+        // ボタンからアクティビティを起動するための設定
         Intent intent = new Intent(context, MainActivity.class);
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         intent.setAction(Intent.ACTION_MAIN);

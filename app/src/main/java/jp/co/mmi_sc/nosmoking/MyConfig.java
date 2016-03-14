@@ -17,6 +17,16 @@ public class MyConfig {
         mPref = context.getSharedPreferences(MYCONFIG, Context.MODE_PRIVATE);
     }
 
+    void initMyConfig() {
+        setSmokingCount(0L);
+        if (getDebugMode() == true) {
+            changeDebugMode();
+        }
+        MySetting.sCountUpSpace = MySetting.COUNT_UP_SPACE_DEFAULT;
+        MySetting.sCount_timer = 0L;
+    }
+
+
     Long getSmokingCount() {
         Long ret = new Long(0);
 
