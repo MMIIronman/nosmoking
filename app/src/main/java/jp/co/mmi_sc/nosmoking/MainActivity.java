@@ -2,6 +2,7 @@ package jp.co.mmi_sc.nosmoking;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,9 +17,14 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
     MyConfig mConfig;
     int mAnimeCount = 0;
+    Timer mTimer = null;
+    Handler mHandler = new android.os.Handler();
 
     public static final int MENU_SELECT_DEBUG = 100;
     private static final int ANIME_COUNT_MAX = 4;
@@ -41,31 +47,24 @@ public class MainActivity extends AppCompatActivity {
 
         mConfig = new MyConfig(this);
         mAnimeCount = 0;
+        stopAnimationTimer();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // test -->
-        Long count = mConfig.getSmokingCount();
-        String strCount = new String("Count = [");
-        strCount += String.valueOf(count);
-        strCount += "]　";
-        strCount += "Level = [";
-        strCount += String.valueOf(MySetting.getCountLevel(count));
-        strCount += "]";
-        TextView mText = (TextView) findViewById(R.id.mainTextView);
-        mText.setText(strCount);
 
-        setImageViewAnime();
+        // test -->
+        setTextViewStrings();
         // test <--
+        startAnimtaionTimer();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-
+        stopAnimationTimer();
     }
 
     @Override
@@ -136,5 +135,45 @@ public class MainActivity extends AppCompatActivity {
         ImageView iv = (ImageView)findViewById(R.id.imageMainView);
         iv.setImageResource(getAnimeImageId());
         mAnimeCount++;
+    }
+
+    void setTextViewStrings() {
+        Long count = mConfig.getSmokingCount();
+        String strCount = new String("Count = [");
+        strCount += String.valueOf(count);
+        strCount += "]\n";
+        strCount += "Level = [";
+        strCount += String.valueOf(MySetting.getCountLevel(count));
+        strCount += "]";
+        TextView mText = (TextView) findViewById(R.id.mainTextView);
+        mText.setText(strCount);
+    }
+
+    void startAnimtaionTimer() {
+        if (mTimer == null) {
+            mTimer = new Timer(true);
+            mTimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    mHandler.post( new Runnable() {
+                        @Override
+                        public void run() {
+                            setImageViewAnime();
+                        }
+                    });
+
+                }
+            },
+            100,
+            500);
+
+        }
+    }
+
+    void stopAnimationTimer() {
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+        }
     }
 }

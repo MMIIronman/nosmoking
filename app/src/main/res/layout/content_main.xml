@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageMainView"
         android:layout_centerInParent="true"
-        android:text="No Smoking!" />
+        android:text="No Smoking!"
+        android:singleLine="false"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
