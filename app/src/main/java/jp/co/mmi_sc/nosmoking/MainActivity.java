@@ -1,5 +1,8 @@
 package jp.co.mmi_sc.nosmoking;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,9 +10,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
     Timer mTimer = null;
     Handler mHandler = new android.os.Handler();
 
-    public static final int MENU_SELECT_DEBUG = 100;
+    private static final int MENU_SELECT_DEBUG = 100;
+    private static final int DEBUG_SUB_MENU_ID_1 = 101;
+    private static final int DEBUG_SUB_MENU_ID_2 = 102;
+
     private static final int ANIME_COUNT_MAX = 4;
+
+    private static final int CUSTOM_DIALOG = 1;
 
     private static final int anime_level1[] = {R.drawable.anime_level1_001, R.drawable.anime_level1_002, R.drawable.anime_level1_003, R.drawable.anime_level1_004};
     private static final int anime_level2[] = {R.drawable.anime_level2_001, R.drawable.anime_level2_002, R.drawable.anime_level2_003, R.drawable.anime_level2_004};
@@ -54,9 +65,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // test -->
         setTextViewStrings();
-        // test <--
         startAnimtaionTimer();
     }
 
@@ -73,7 +82,11 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         if (mConfig.getDebugMode() == true) {
-            menu.add(Menu.NONE, MENU_SELECT_DEBUG, Menu.NONE, "Debug Menu");
+            SubMenu subMenu;
+            subMenu = menu.addSubMenu(Menu.NONE, MENU_SELECT_DEBUG, Menu.NONE, "Debug Menu");
+
+            subMenu.add(Menu.NONE, DEBUG_SUB_MENU_ID_1, Menu.NONE, "All Reset");
+            subMenu.add(Menu.NONE, DEBUG_SUB_MENU_ID_2, Menu.NONE, "Set Count");
         }
         return true;
     }
@@ -95,7 +108,14 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } else if (id == MENU_SELECT_DEBUG) {
             Toast.makeText(this, "Select menu is Debug Menu", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == DEBUG_SUB_MENU_ID_1) {
+            Toast.makeText(this, "Setting Reset All!!", Toast.LENGTH_LONG).show();
             mConfig.initMyConfig(); // test
+            return true;
+        } else if (id == DEBUG_SUB_MENU_ID_2) {
+            Toast.makeText(this, "Setting Count!", Toast.LENGTH_SHORT).show();
+            showDialog(CUSTOM_DIALOG);
             return true;
         }
 
@@ -165,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             },
             100,
-            500);
+            1000);
 
         }
     }
@@ -175,5 +195,44 @@ public class MainActivity extends AppCompatActivity {
             mTimer.cancel();
             mTimer = null;
         }
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+
+            case CUSTOM_DIALOG:
+                //レイアウトの呼び出し
+                LayoutInflater factory = LayoutInflater.from(this);
+                final View inputView = factory.inflate(R.layout.input_number_dialog, null);
+
+                EditText editText = (EditText) inputView.findViewById(R.id.dialog_edittext);
+                if (editText != null) {
+                    Long count = mConfig.getSmokingCount();
+                    editText.setText(String.valueOf(count), TextView.BufferType.NORMAL);
+                }
+
+                //ダイアログの作成(AlertDialog.Builder)
+                return new AlertDialog.Builder(MainActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle(R.string.debug_dialog)
+                        .setView(inputView)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                EditText editText = (EditText) inputView.findViewById(R.id.dialog_edittext);
+                                if (editText != null) {
+                                    mConfig.setSmokingCount(Long.parseLong(editText.getText().toString()));
+                                    setTextViewStrings();
+                                }
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                            }
+                        })
+                        .create();
+        }
+
+        return null;
     }
 }

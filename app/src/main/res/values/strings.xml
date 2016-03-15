@@ -14,4 +14,6 @@
     <string name="main_strings_level2">Level 2 Strings</string>
     <string name="main_strings_level3">Level 3 Strings</string>
     <string name="main_strings_level4">Level 4 Strings</string>
+    <string name="debug_dialog">Dialog</string>
+    <string name="debung_input">Input Count</string>
 </resources>
