@@ -82,11 +82,11 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         if (mConfig.getDebugMode() == true) {
-            SubMenu subMenu;
-            subMenu = menu.addSubMenu(Menu.NONE, MENU_SELECT_DEBUG, Menu.NONE, "Debug Menu");
+            SubMenu debugSubMenu;
+            debugSubMenu = menu.addSubMenu(Menu.NONE, MENU_SELECT_DEBUG, Menu.NONE, "Debug Menu");
 
-            subMenu.add(Menu.NONE, DEBUG_SUB_MENU_ID_1, Menu.NONE, "All Reset");
-            subMenu.add(Menu.NONE, DEBUG_SUB_MENU_ID_2, Menu.NONE, "Set Count");
+            debugSubMenu.add(Menu.NONE, DEBUG_SUB_MENU_ID_1, Menu.NONE, "All Reset");
+            debugSubMenu.add(Menu.NONE, DEBUG_SUB_MENU_ID_2, Menu.NONE, "Set Count");
         }
         return true;
     }
@@ -99,12 +99,15 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Toast.makeText(this, "Select menu is Setting", Toast.LENGTH_SHORT).show();
-            return true;
-        } else if (id == R.id.action_about) {
+        if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
+            return true;
+        } else if (id == R.id.setting_menu_1) {
+            Toast.makeText(this, "Select menu is Setting submenu 1", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.setting_menu_2) {
+            Toast.makeText(this, "Select menu is Setting submenu 2", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == MENU_SELECT_DEBUG) {
             Toast.makeText(this, "Select menu is Debug Menu", Toast.LENGTH_SHORT).show();
