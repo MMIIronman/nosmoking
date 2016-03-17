@@ -16,4 +16,6 @@
     <string name="main_strings_level4">Level 4 Strings</string>
     <string name="debug_dialog">Dialog</string>
     <string name="debung_input">Input Count</string>
+    <string name="setting_menu_1">Reset</string>
+    <string name="setting_menu_2">Set Felica</string>
 </resources>
