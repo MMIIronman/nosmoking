@@ -1,4 +1,4 @@
-package mmi_sc.co.jp.nosmoking;
+package jp.co.mmi_sc.nosmoking;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
