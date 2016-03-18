@@ -18,4 +18,7 @@
     <string name="debung_input">Input Count</string>
     <string name="setting_menu_1">Reset</string>
     <string name="setting_menu_2">Set Felica</string>
+    <string name="title_activity_setting_felica">Setting Felica</string>
+    <string name="setting_felica_set_legend">登録したいFelicaカードを\nかざしてください。\n※すでに登録済みの場合に\nかざすと設定が\n上書きされます。</string>
+    <string name="setting_felica_set_ok">認識しました。\n今後はこちらのカードが有効となります。</string>
 </resources>
