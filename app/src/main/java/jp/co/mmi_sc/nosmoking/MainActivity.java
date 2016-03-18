@@ -80,6 +80,18 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem item = menu.getItem(i);
+            if (item.getItemId() == R.id.setting_menu_2) {
+                FelicaDetection felica = new FelicaDetection(this);
+                int state = felica.isState();
+                if (state == FelicaDetection.NFC_ADAPTER_NONE) {
+                    item.setEnabled(false);
+                } else {
+                    item.setEnabled(true);
+                }
+            }
+        }
 
         if (mConfig.getDebugMode() == true) {
             SubMenu debugSubMenu;

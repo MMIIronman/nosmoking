@@ -29,10 +29,6 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ImageView iv = (ImageView)findViewById(R.id.logoImageView);
-        iv.setImageResource(R.drawable.mmi_logo);
-//        setContentView(iv);
-
         debug_count = 0;
 
     }

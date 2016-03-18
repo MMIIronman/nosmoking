@@ -25,20 +25,31 @@ public class SettingFelicaActivity extends AppCompatActivity {
         mFelica = new FelicaDetection(this);
 
         mFelicaIDText = (TextView) findViewById(R.id.setfelicatextView);
+
+        if (mFelica.isState() == FelicaDetection.NFC_ADAPTER_DISABLE) {
+            mFelicaIDText.setText(getString(R.string.setting_felica_set_warning));
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        mFelica.enable();
+        if (mFelica.isState() == FelicaDetection.NFC_ADAPTER_ENABLE) {
+            if (mCardID == null) {
+                mFelicaIDText.setText(getString(R.string.setting_felica_set_legend));
+            }
+            mFelica.enable();
+        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
 
-        mFelica.disable();
+        if (mFelica.isState() == FelicaDetection.NFC_ADAPTER_ENABLE) {
+            mFelica.disable();
+        }
     }
 
     @Override
@@ -47,6 +58,9 @@ public class SettingFelicaActivity extends AppCompatActivity {
 
         mCardID = mFelica.getCardId(intent);
         if (mCardID.length() > 0) {
+            MyConfig config = new MyConfig(this);
+            config.setFelicaId(mCardID);
+
             Vibrator vib = (Vibrator)getSystemService(VIBRATOR_SERVICE);
             vib.vibrate(200);
             mFelicaIDText.setText(getString(R.string.setting_felica_set_ok));
