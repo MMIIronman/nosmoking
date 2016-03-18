@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:text="@string/action_about_text"
         android:id="@+id/abouttextView"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -24,11 +25,15 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/logoImageView"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/mmi_logo"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,6 +41,7 @@
         android:text="@string/homepage"
         android:id="@+id/linkTextView"
         android:autoLink="web"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_below="@+id/logoImageView"
         android:layout_centerHorizontal="true" />
 
