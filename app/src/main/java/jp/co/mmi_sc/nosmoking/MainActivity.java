@@ -116,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         } else if (id == R.id.setting_menu_1) {
-            Toast.makeText(this, "Select menu is Setting submenu 1", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Setting Reset All!!", Toast.LENGTH_SHORT).show();
+            mConfig.initMyConfig();
             return true;
         } else if (id == R.id.setting_menu_2) {
             Intent intent = new Intent(this, SettingFelicaActivity.class);
