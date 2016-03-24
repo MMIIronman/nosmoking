@@ -17,8 +17,6 @@ public class FelicaDetection {
 
 	private NfcAdapter mNfcAdapter = null;
 
-	private byte[] mCardID = new byte[0];
-
 	/** Status種別 */
 	public static final int NFC_ADAPTER_NONE = 0x00; // Nfc Adapter is None.
 	public static final int NFC_ADAPTER_DISABLE = 0x01; // Nfc Adapter is Disable.
@@ -85,9 +83,9 @@ public class FelicaDetection {
 	 * @param intent
 	 *            インテントオブジェクト
 	 */
-	public String getCardId(Intent intent) {
+	public static String getCardId(Intent intent) {
 		String result = new String("");
-		mCardID = new byte[0];
+		byte[] CardID = new byte[0];
 
 		Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 		if (tagFromIntent == null) {
@@ -103,15 +101,15 @@ public class FelicaDetection {
 
 		if (Arrays.asList(techList).contains(NfcF.class.getName())) {
 			// NFCID2を取得
-			mCardID = intent.getByteArrayExtra(NfcAdapter.EXTRA_ID);
-			if (mCardID.length > 0) {
-				Log.d(TAG, "Card ID:{" + bytes2HexString(mCardID) + "}");
+			CardID = intent.getByteArrayExtra(NfcAdapter.EXTRA_ID);
+			if (CardID.length > 0) {
+				Log.d(TAG, "Card ID:{" + bytes2HexString(CardID) + "}");
 			} else {
 				Log.d(TAG, "Card ID is None.");
 			}
 		}
 
-		result = bytes2HexString(mCardID);
+		result = bytes2HexString(CardID);
 		return result;
 	}
 
