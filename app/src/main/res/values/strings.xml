@@ -19,8 +19,11 @@
     <string name="setting_menu_1">Reset</string>
     <string name="setting_menu_2">Set Felica</string>
     <string name="title_activity_setting_felica">Setting Felica</string>
-    <string name="setting_felica_set_legend">登録したいFelicaカードを\nかざしてください。\n※すでに登録済みの場合に\nかざすと設定が\n上書きされます。</string>
-    <string name="setting_felica_set_ok">認識しました。\n今後はこちらのカードが有効となります。</string>
-    <string name="setting_felica_set_warning">NFC設定がOFFとなっています。設定アプリよりNFC設定をONにしてください。</string>
+    <string name="setting_felica_set_legend">Please setting the Felica card you would like to register.\nWhen being registered already, setting is overwritten.</string>
+    <string name="setting_felica_set_ok">It was recognized.\nThis card will become effective from now on.</string>
+    <string name="setting_felica_set_warning">NFC setting is off.\nPlease turn on NFC setting more than a setting application.</string>
     <string name="title_activity_nfc_intent">NfcIntentActivity</string>
+    <string name="time_day">Day</string>
+    <string name="time_hour">Hour</string>
+    <string name="time_min">Min</string>
 </resources>

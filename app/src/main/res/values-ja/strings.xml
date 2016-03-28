@@ -1,0 +1,21 @@
+<resources>
+    <string name="action_settings">設定</string>
+    <string name="action_about">アプリについて</string>
+    <string name="title_activity_about">アプリについて</string>
+    <string name="main_strings_level1">Level 1 Strings</string>
+    <string name="main_strings_level2">Level 2 Strings</string>
+    <string name="main_strings_level3">Level 3 Strings</string>
+    <string name="main_strings_level4">Level 4 Strings</string>
+    <string name="debug_dialog">ダイアログ</string>
+    <string name="debung_input">カウント入力</string>
+    <string name="setting_menu_1">リセット</string>
+    <string name="setting_menu_2">Felica設定</string>
+    <string name="title_activity_setting_felica">Felica設定</string>
+    <string name="setting_felica_set_legend">登録したいFelicaカードを\nかざしてください。\n※すでに登録済みの場合に\nかざすと設定が\n上書きされます。</string>
+    <string name="setting_felica_set_ok">認識しました。\n今後はこちらのカードが有効となります。</string>
+    <string name="setting_felica_set_warning">NFC設定がOFFとなっています。\n設定アプリよりNFC設定をONにしてください。</string>
+    <string name="title_activity_nfc_intent">Felica設定</string>
+    <string name="time_day">日</string>
+    <string name="time_hour">時</string>
+    <string name="time_min">分</string>
+</resources>
