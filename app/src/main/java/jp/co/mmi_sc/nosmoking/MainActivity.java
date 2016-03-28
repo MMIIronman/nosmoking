@@ -181,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
         strCount += "]\n";
         strCount += "Level = [";
         strCount += String.valueOf(MySetting.getCountLevel(count));
-        strCount += "]";
+        strCount += "]\n";
+        strCount += MySetting.getTimeStrings(getResources());
         TextView mText = (TextView) findViewById(R.id.mainTextView);
         mText.setText(strCount);
     }

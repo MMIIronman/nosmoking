@@ -1,6 +1,6 @@
 package jp.co.mmi_sc.nosmoking;
 
-import java.util.Timer;
+import android.content.res.Resources;
 
 /**
  * Created by hajime on 2016/03/12.
@@ -60,4 +60,32 @@ public class MySetting {
         sCount_timer = System.currentTimeMillis();
     }
 
+    static String getTimeStrings(Resources res) {
+        long counttime_day = 0;
+        long counttime_hour = 0;
+        long counttime_min = 0;
+        long nowtTime;
+        StringBuilder sb = new StringBuilder("");
+
+        nowtTime = System.currentTimeMillis();
+        CountTimeInfo time = new CountTimeInfo(sCount_timer.longValue(), nowtTime);
+        counttime_day = time.getTimeDay();
+        counttime_hour = time.getTimeHour();
+        counttime_min = time.getTimeMin();
+
+        if (counttime_day > 0) {
+            sb.append(String.format("%1$02d", counttime_day));
+            sb.append(res.getString(R.string.time_day));
+            sb.append(" ");
+        }
+        if ((counttime_day > 0) || (counttime_hour > 0) || (counttime_min > 0)) {
+            sb.append(String.format("%1$02d", counttime_hour));
+            sb.append(res.getString(R.string.time_hour));
+            sb.append(" ");
+        }
+        sb.append(String.format("%1$02d", counttime_min));
+        sb.append(res.getString(R.string.time_min));
+
+        return sb.toString();
+    }
 }
