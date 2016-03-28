@@ -18,4 +18,5 @@
     <string name="time_day">日</string>
     <string name="time_hour">時</string>
     <string name="time_min">分</string>
+    <string name="action_set_nfc">NFC設定</string>
 </resources>
