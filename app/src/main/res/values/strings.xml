@@ -27,4 +27,5 @@
     <string name="time_hour">Hour</string>
     <string name="time_min">Min</string>
     <string name="action_set_nfc">Settinf Felica</string>
+    <string name="title_activity_manual">Manual</string>
 </resources>
