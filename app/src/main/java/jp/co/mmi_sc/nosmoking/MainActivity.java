@@ -115,6 +115,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
             return true;
+        } else if (id == R.id.action_manual) {
+            Intent intent = new Intent(this, ManualActivity.class);
+            startActivity(intent);
+            return true;
         } else if (id == R.id.setting_menu_1) {
             Toast.makeText(this, "Setting Reset All!!", Toast.LENGTH_SHORT).show();
             mConfig.initMyConfig();
