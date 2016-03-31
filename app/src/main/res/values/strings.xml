@@ -28,4 +28,6 @@
     <string name="time_min">Min</string>
     <string name="action_set_nfc">Settinf Felica</string>
     <string name="title_activity_manual">Manual</string>
+    <string name="action_contact">Contact</string>
+    <string name="contact_form">http://goo.gl/forms/Z0IH58DPqK</string>
 </resources>
