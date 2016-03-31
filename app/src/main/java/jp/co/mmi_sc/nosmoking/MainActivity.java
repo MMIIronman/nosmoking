@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -118,6 +119,11 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_manual) {
             Intent intent = new Intent(this, ManualActivity.class);
             startActivity(intent);
+            return true;
+        } else if (id == R.id.action_contact) {
+            Uri uri = Uri.parse(getString(R.string.contact_form));
+            Intent i = new Intent(Intent.ACTION_VIEW,uri);
+            startActivity(i);
             return true;
         } else if (id == R.id.setting_menu_1) {
             Toast.makeText(this, "Setting Reset All!!", Toast.LENGTH_SHORT).show();
