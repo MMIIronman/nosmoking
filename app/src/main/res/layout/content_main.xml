@@ -15,10 +15,11 @@
 
     <ImageView
         android:id="@+id/imageMainView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"/>
 
     <TextView
         android:id="@+id/mainTextView"
