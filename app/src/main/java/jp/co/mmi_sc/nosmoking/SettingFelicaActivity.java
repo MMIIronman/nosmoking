@@ -65,6 +65,8 @@ public class SettingFelicaActivity extends AppCompatActivity {
                 mFelicaIDText.setText(getString(R.string.setting_felica_set_legend));
             }
             mFelica.enable();
+        } else {
+            mFelicaIDText.setText(getString(R.string.setting_felica_set_warning));
         }
     }
 
