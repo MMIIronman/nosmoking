@@ -16,4 +16,8 @@
     <string name="main_strings_level4">Level 4 Strings</string>
     <string name="debug_dialog">Dialog</string>
     <string name="debung_input">Input Count</string>
+    <string name="title_activity_setting_menu">SettingMenu</string>
+    <string name="message_activity_setting_menu">設定メニュー</string>
+    <string name="button_reset_count">Reset Count</string>
+    <string name="message_reset_count">Countをリセットしました</string>
 </resources>

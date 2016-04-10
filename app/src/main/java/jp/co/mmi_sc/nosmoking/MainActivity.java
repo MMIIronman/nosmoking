@@ -101,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Toast.makeText(this, "Select menu is Setting", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SettingMenuActivity.class);
+            startActivity(intent);
             return true;
         } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
