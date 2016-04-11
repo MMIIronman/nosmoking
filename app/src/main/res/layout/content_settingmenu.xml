@@ -29,4 +29,13 @@
         android:text="@string/button_reset_count"
         android:id="@+id/button_resetcount" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_menu_felica"
+        android:id="@+id/button_felica"
+        android:layout_below="@+id/button_resetcount"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

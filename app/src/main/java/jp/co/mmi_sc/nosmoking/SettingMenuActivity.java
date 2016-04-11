@@ -18,6 +18,7 @@ public class SettingMenuActivity  extends AppCompatActivity {
     MyConfig mConfig;
     private TextView mSettingMenuIDText;
     private Button mButtonResetCount;
+    private Button mButtonFelica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class SettingMenuActivity  extends AppCompatActivity {
                 }
             }
         });
+
+        mButtonFelica = (Button)findViewById(R.id.button_felica);
     }
 
     @Override
