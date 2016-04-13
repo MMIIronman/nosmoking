@@ -79,19 +79,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        for (int i = 0; i < menu.size(); i++) {
-            MenuItem item = menu.getItem(i);
-            if (item.getItemId() == R.id.setting_menu_2) {
-                FelicaDetection felica = new FelicaDetection(this);
-                int state = felica.isState();
-                if (state == FelicaDetection.NFC_ADAPTER_NONE) {
-                    item.setEnabled(false);
-                } else {
-                    item.setEnabled(true);
-                }
-            }
-        }
-
         if (mConfig.getDebugMode() == true) {
             SubMenu debugSubMenu;
             debugSubMenu = menu.addSubMenu(Menu.NONE, MENU_SELECT_DEBUG, Menu.NONE, "Debug Menu");
@@ -110,7 +97,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_about) {
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingMenuActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_about) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
             return true;
@@ -122,14 +113,6 @@ public class MainActivity extends AppCompatActivity {
             Uri uri = Uri.parse(getString(R.string.contact_form));
             Intent i = new Intent(Intent.ACTION_VIEW,uri);
             startActivity(i);
-            return true;
-        } else if (id == R.id.setting_menu_1) {
-            Toast.makeText(this, "Setting Reset All!!", Toast.LENGTH_SHORT).show();
-            mConfig.initMyConfig();
-            return true;
-        } else if (id == R.id.setting_menu_2) {
-            Intent intent = new Intent(this, SettingFelicaActivity.class);
-            startActivity(intent);
             return true;
         } else if (id == MENU_SELECT_DEBUG) {
             Toast.makeText(this, "Select menu is Debug Menu", Toast.LENGTH_SHORT).show();

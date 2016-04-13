@@ -30,4 +30,12 @@
     <string name="title_activity_manual">Manual</string>
     <string name="action_contact">Contact</string>
     <string name="contact_form">http://goo.gl/forms/Z0IH58DPqK</string>
+    <string name="title_activity_setting_menu">Setting Menu</string>
+    <string name="message_activity_setting_menu">Setting Menu</string>
+    <string name="button_menu_felica">Felica</string>
+    <string name="button_reset_count">Reset Count</string>
+    <string name="message_reset_count">Count Reset Done.</string>
+    <string name="message_confirm_dlg">Can I reset a count?</string>
+    <string name="button_ok">OK</string>
+    <string name="button_no">NO</string>
 </resources>

@@ -21,4 +21,12 @@
     <string name="action_set_nfc">NFC設定</string>
     <string name="title_activity_manual">操作方法</string>
     <string name="action_contact">問い合わせ</string>
+    <string name="title_activity_setting_menu">SettingMenu</string>
+    <string name="message_activity_setting_menu">設定メニュー</string>
+    <string name="button_menu_felica">Felica</string>
+    <string name="button_reset_count">Reset Count</string>
+    <string name="message_reset_count">Countをリセットしました</string>
+    <string name="message_confirm_dlg">Countをリセットしますか？</string>
+    <string name="button_ok">はい</string>
+    <string name="button_no">いいえ</string>
 </resources>

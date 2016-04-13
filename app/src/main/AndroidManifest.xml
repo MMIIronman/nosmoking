@@ -79,6 +79,11 @@
             android:label="@string/title_activity_manual"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".SettingMenuActivity"
+            android:label="@string/title_activity_setting_menu"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
