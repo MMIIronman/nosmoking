@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     int mAnimeCount = 0;
     Timer mTimer = null;
     Handler mHandler = new android.os.Handler();
+    TextView mText = null;
 
     private static final int MENU_SELECT_DEBUG = 100;
     private static final int DEBUG_SUB_MENU_ID_1 = 101;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        mText = (TextView) findViewById(R.id.mainTextView);
 
         mConfig = new MyConfig(this);
         mAnimeCount = 0;
@@ -167,15 +170,34 @@ public class MainActivity extends AppCompatActivity {
 
     void setTextViewStrings() {
         Long count = mConfig.getSmokingCount();
-        String strCount = new String("Count = [");
-        strCount += String.valueOf(count);
-        strCount += "]\n";
-        strCount += "Level = [";
-        strCount += String.valueOf(MySetting.getCountLevel(count));
-        strCount += "]\n";
-        strCount += MySetting.getTimeStrings(getResources());
-        TextView mText = (TextView) findViewById(R.id.mainTextView);
-        mText.setText(strCount);
+        if (mConfig.getDebugMode() == true) {
+	        String strCount = new String("Count = [");
+	        strCount += String.valueOf(count);
+	        strCount += "]\n";
+	        strCount += "Level = [";
+	        strCount += String.valueOf(MySetting.getCountLevel(count));
+	        strCount += "]";
+	        mText.setText(strCount);
+		} else {
+	        int level = MySetting.getCountLevel(count);
+            int id;
+	        switch (level) {
+	            case MySetting.COUNTER_LEVEL2:
+	                id = R.string.main_strings_level2;
+	                break;
+	            case MySetting.COUNTER_LEVEL3:
+                    id = R.string.main_strings_level3;
+	                break;
+	            case MySetting.COUNTER_LEVEL4:
+                    id = R.string.main_strings_level4;
+	                break;
+                case MySetting.COUNTER_LEVEL1:
+	            default:
+                    id = R.string.main_strings_level1;
+	                break;
+	        }
+	        mText.setText(getString(id));
+		}
     }
 
     void startAnimtaionTimer() {
