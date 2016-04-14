@@ -25,7 +25,7 @@ public class MyConfig {
         }
         setFelicaId(null);
         MySetting.sCountUpSpace = MySetting.COUNT_UP_SPACE_DEFAULT;
-        MySetting.sCount_timer = 0L;
+        MySetting.sCount_timer = System.currentTimeMillis();
     }
 
     Long getSmokingCount() {

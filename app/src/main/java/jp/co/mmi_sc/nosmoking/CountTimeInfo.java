@@ -17,7 +17,12 @@ public class CountTimeInfo {
     CountTimeInfo (long startTime, long endTime) {
         long counttime = 0;
 
-        if (endTime > startTime) {
+        if (startTime == 0) {
+            mDay = 0;
+            mHour = 0;
+            mMin = 0;
+            mSec = 0;
+        } else if (endTime > startTime) {
             counttime = (endTime - startTime);
             mDay = (counttime / (DAY * HOUR * MINUTE * SECOND));
             mHour =  (counttime / (HOUR * MINUTE * SECOND));

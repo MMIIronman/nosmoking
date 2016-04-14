@@ -198,6 +198,12 @@ public class MainActivity extends AppCompatActivity {
 	        }
 	        mText.setText(getString(id));
 		}
+        mText.append("\n");
+        mText.append(getString(R.string.last_tap_time));
+        mText.append("\n");
+        mText.append(MySetting.getTimeStrings(getResources()));
+        mText.append("\n");
+        mText.append(getString(R.string.last_tap_time_end));
     }
 
     void startAnimtaionTimer() {

@@ -38,4 +38,6 @@
     <string name="message_confirm_dlg">Can I reset a count?</string>
     <string name="button_ok">OK</string>
     <string name="button_no">NO</string>
+    <string name="last_tap_time">Last Smoking...</string>
+    <string name="last_tap_time_end">Time!!</string>
 </resources>

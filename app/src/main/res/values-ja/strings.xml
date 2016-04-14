@@ -29,4 +29,6 @@
     <string name="message_confirm_dlg">Countをリセットしますか？</string>
     <string name="button_ok">はい</string>
     <string name="button_no">いいえ</string>
+    <string name="last_tap_time">最後に喫煙してから</string>
+    <string name="last_tap_time_end">経過しています。</string>
 </resources>
