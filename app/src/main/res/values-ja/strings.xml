@@ -2,10 +2,10 @@
     <string name="action_settings">設定</string>
     <string name="action_about">アプリについて</string>
     <string name="title_activity_about">アプリについて</string>
-    <string name="main_strings_level1">Level 1 Strings</string>
-    <string name="main_strings_level2">Level 2 Strings</string>
-    <string name="main_strings_level3">Level 3 Strings</string>
-    <string name="main_strings_level4">Level 4 Strings</string>
+    <string name="main_strings_level1">タバコはやめましょう。</string>
+    <string name="main_strings_level2">タバコやめませんか？</string>
+    <string name="main_strings_level3">ガンのリスク上昇中。\nお医者さんに相談を…。</string>
+    <string name="main_strings_level4">タバコやめられないなら\n人間やめますか？</string>
     <string name="debug_dialog">ダイアログ</string>
     <string name="debung_input">カウント入力</string>
     <string name="setting_menu_1">リセット</string>

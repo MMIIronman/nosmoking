@@ -10,10 +10,10 @@
     <string name="appwidget_button_status">Status</string>
     <string name="title_activity_about">About</string>
     <string name="homepage">http://www.mmi-sc.co.jp/</string>
-    <string name="main_strings_level1">Level 1 Strings</string>
-    <string name="main_strings_level2">Level 2 Strings</string>
-    <string name="main_strings_level3">Level 3 Strings</string>
-    <string name="main_strings_level4">Level 4 Strings</string>
+    <string name="main_strings_level1">Let\'s stop smoking.</string>
+    <string name="main_strings_level2">you should stop smoking.</string>
+    <string name="main_strings_level3">The consult your doctor.</string>
+    <string name="main_strings_level4">Smoke or Die?</string>
     <string name="debug_dialog">Dialog</string>
     <string name="debung_input">Input Count</string>
     <string name="setting_menu_1">Reset</string>
