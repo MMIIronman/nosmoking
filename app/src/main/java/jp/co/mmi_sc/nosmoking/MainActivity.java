@@ -6,15 +6,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.SubMenu;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int CUSTOM_DIALOG = 1;
 
-    private static final int anime_level1[] = {R.drawable.anime_level1_001, R.drawable.anime_level1_002, R.drawable.anime_level1_003, R.drawable.anime_level1_004};
-    private static final int anime_level2[] = {R.drawable.anime_level2_001, R.drawable.anime_level2_002, R.drawable.anime_level2_003, R.drawable.anime_level2_004};
-    private static final int anime_level3[] = {R.drawable.anime_level3_001, R.drawable.anime_level3_002, R.drawable.anime_level3_003, R.drawable.anime_level3_004};
-    private static final int anime_level4[] = {R.drawable.anime_level4_001, R.drawable.anime_level4_002, R.drawable.anime_level4_003, R.drawable.anime_level4_004};
+    private static final int anime_level1[] = {R.drawable.business_suit_good, R.drawable.business_suit_good, R.drawable.business_suit_good, R.drawable.business_suit_good};
+    private static final int anime_level2[] = {R.drawable.tabako_kyukei, R.drawable.tabako_kyukei, R.drawable.tabako_kyukei, R.drawable.tabako_kyukei};
+    private static final int anime_level3[] = {R.drawable.pose_zasetsu, R.drawable.pose_zasetsu, R.drawable.pose_zasetsu, R.drawable.pose_zasetsu};
+    private static final int anime_level4[] = {R.drawable.tabako_heavy_smoker, R.drawable.tabako_heavy_smoker, R.drawable.tabako_heavy_smoker, R.drawable.tabako_heavy_smoker};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
