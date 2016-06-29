@@ -1,0 +1,34 @@
+<resources>
+    <string name="action_settings">設定</string>
+    <string name="action_about">アプリについて</string>
+    <string name="title_activity_about">アプリについて</string>
+    <string name="main_strings_level1">タバコはやめましょう。</string>
+    <string name="main_strings_level2">タバコやめませんか？</string>
+    <string name="main_strings_level3">ガンのリスク上昇中。\nお医者さんに相談を…。</string>
+    <string name="main_strings_level4">タバコやめられないなら\n人間やめますか？</string>
+    <string name="debug_dialog">ダイアログ</string>
+    <string name="debung_input">カウント入力</string>
+    <string name="setting_menu_1">リセット</string>
+    <string name="setting_menu_2">Felica設定</string>
+    <string name="title_activity_setting_felica">Felica設定</string>
+    <string name="setting_felica_set_legend">登録したいFelicaカードを\nかざしてください。\n※すでに登録済みの場合に\nかざすと設定が\n上書きされます。</string>
+    <string name="setting_felica_set_ok">認識しました。\n今後はこちらのカードが有効となります。</string>
+    <string name="setting_felica_set_warning">NFC設定がOFFとなっています。\n設定アプリよりNFC設定をONにしてください。</string>
+    <string name="title_activity_nfc_intent">Felica設定</string>
+    <string name="time_day">日</string>
+    <string name="time_hour">時</string>
+    <string name="time_min">分</string>
+    <string name="action_set_nfc">NFC設定</string>
+    <string name="title_activity_manual">操作方法</string>
+    <string name="action_contact">問い合わせ</string>
+    <string name="title_activity_setting_menu">SettingMenu</string>
+    <string name="message_activity_setting_menu">設定メニュー</string>
+    <string name="button_menu_felica">Felica</string>
+    <string name="button_reset_count">Reset Count</string>
+    <string name="message_reset_count">Countをリセットしました</string>
+    <string name="message_confirm_dlg">Countをリセットしますか？</string>
+    <string name="button_ok">はい</string>
+    <string name="button_no">いいえ</string>
+    <string name="last_tap_time">最後に喫煙してから</string>
+    <string name="last_tap_time_end">経過しています。</string>
+</resources>
